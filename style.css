@@ -1,0 +1,53 @@
+.date-right{
+  text-align: end;
+  float: right;
+}
+
+.date-left{
+  text-align: start;
+  float: left;
+}
+
+#grid-kelo{
+  display: grid;
+  grid-template-rows: repeat(2, 100%);
+  grid-template-columns: repeat(2, 50%);
+  
+}
+
+#grid-kelo div{
+  column-gap: 50px;
+  row-gap: 20px;
+}
+
+.contador-de-muertes{
+  width: fit-content;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.graph-1{
+  width: 70px;
+  height: 110px;
+  display: inline-block;
+  text-align: center;
+}
+
+.barra{
+  background-color: #d34343;
+  vertical-align: bottom;
+}
+
+.tipo{
+  vertical-align: bottom;
+}
+
+.mid{
+  max-width: 49%;
+  display: inline-block;
+  text-align: center;
+}
+
+p{
+  margin: 0!important;
+}

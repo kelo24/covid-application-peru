@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Aplicación COVID</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
+      <h1 class="display-4 mx-4 mt-2">Peru's COVID app</h1>
+      <span class="text-muted mt-4"><em>by Kelvin Vidaurre</em></span>
+    </nav>
+
+    <!-- <div class="container mt-4">
+      <form class="form-inline my-2 my-lg-0" style="width: fit-content; margin: auto;">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div> -->
+
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Casos</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Muertes</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Vacunados por región</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Positividad</button>
+  </li>
+</ul>
+
+<div class="tab-content mt-4">
+  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+    <div class="date-right">
+      <p class="text-muted"><em>Última actualización: 14-04-2021</em></p>
+    </div>
+    <br>
+    <div class="date-right">
+      <p class="text-muted"><em>Fuente: MINSA </em></p>
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th id="cs-1">Región</th>
+          <th id="cs-2">PCR (+)</th>
+          <th id="cs-3">Prueba rápida (+)</th>
+          <th id="cs-4">Prueba antígeno (+)</th>
+          <th id="cs-5">Total de casos (+)</th>
+        </tr>
+      </thead>
+      <tbody id="casos">
+
+
+
+      </tbody>
+    </table>
+
+  </div>
+  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <div class="date-left">
+      <p class="text-muted"><em id='per-day'></em></p>
+    </div>
+    <div class="date-right">
+      <p class="text-muted"><em>Última actualización: 14-04-2021</em></p>
+    </div>
+    <br>
+    <div class="date-right">
+      <p class="text-muted"><em>Fuente: MINSA</em></p>
+    </div>
+
+    <!-- gráficos -->
+    <!-- <div id="grid-kelo">
+      <div id="deaths-for-stageLife">
+        <div class="contador-de-muertes">
+          <p style="vertical-align: top;" class="text-muted"><em>40 mil</em></p>
+          <p style="vertical-align: middle;" class="text-muted"><em>20 mil</em></p>
+          <p style="vertical-align: bottom;" class="text-muted"><em>0 mil</em></p>
+        </div>
+        <div id="am-kelo" class="graph-1">
+          <div class="barra"></div>
+          <div class="tipo">ADULTO MAYOR</div>
+        </div>
+        <div id="a-kelo" class="graph-1"></div>
+        <div id="j-kelo" class="graph-1"></div>
+        <div id="ad-kelo" class="graph-1"></div>
+        <div id="n-kelo" class="graph-1"></div>
+      </div>
+      <div id="deaths-for-gender">
+
+      </div>
+      <div id="deaths-for-gender-and-age">
+
+      </div>
+      <div id="deaths-for-place">
+
+      </div>
+    </div>
+
+  </div> -->
+
+<!-- tabla por etapa de vida -->
+  <!-- <table class="table table-striped table-hover mid">
+      <thead>
+        <tr>
+          <th id="dfsl-1">Etapa de vida</th>
+          <th id="dfsl-2">Cantidad</th>
+          <th id="dfsl-3">Letalidad (%)</th>
+        </tr>
+      </thead>
+      <tbody id="deaths-for-stageLife">
+
+
+
+      </tbody>
+    </table> -->
+
+<!-- tabla por género -->
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th id="dfg-1">Género</th>
+          <th id="dfg-2">Cantidad</th>
+          <th id="dfg-3">Letalidad (%)</th>
+        </tr>
+      </thead>
+      <tbody id="deaths-for-gender">
+
+
+
+      </tbody>
+    </table>
+
+    <div class="date-left">
+      <p class="text-muted"><em id='per-day'>*Calculado desde el 15/03/2020 hasta la fecha de actualización.</em></p>
+    </div>
+
+    <!-- tabla por género y etapa de vida -->
+    <!-- <table class="table table-striped table-hover mid">
+      <thead>
+        <tr>
+          <th id="dfga-1">Etapa de vida/Género</th>
+          <th id="dfga-2">Masculino</th>
+          <th id="dfga-3">Femenino</th>
+        </tr>
+      </thead>
+      <tbody id="deaths-for-gender-and-age">
+
+
+
+      </tbody>
+    </table> -->
+
+    <!-- tabla por lugar de defunción -->
+    <!-- <table class="table table-striped table-hover mid">
+      <thead>
+        <tr>
+          <th id="dfp-">Lugar</th>
+          <th id="dfp-">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody id="deaths-for-place">
+
+
+
+      </tbody>
+    </table> -->
+
+    
+
+</div>
+
+<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+
+  <div class="date-right">
+    <p class="text-muted"><em>Última actualización: 21-04-2021</em></p>
+  </div>
+  <br>
+  <div class="date-right">
+    <p class="text-muted"><em>Fuente: MINSA </em></p>
+  </div>
+
+  <table class="table table-striped table-hover">
+      <thead>
+          <tr>
+              <th id="vc-1">Dato</th>
+              <th id="vc-2">Dato</th>
+              <th id="vc-3">Dato</th>
+          </tr>
+      </thead>
+      <tbody id="vacunados">
+  
+  
+  
+      </tbody>
+  </table>
+
+</div>
+<div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+
+    <div class="date-right">
+        <p class="text-muted"><em>Última actualización: 14-04-2021</em></p>
+    </div>
+    <br>
+    <div class="date-right">
+        <p class="text-muted"><em>Fuente: MINSA </em></p>
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th id="ps-1">Región</th>
+          <th id="ps-2">Muestras tomadas</th>
+          <th id="ps-3">Casos confirmados</th>
+          <th id="ps-4">Positividad (%)</th>
+        </tr>
+      </thead>
+      <tbody id="positividad">
+
+
+
+      </tbody>
+    </table>
+
+</div>
+
+<script>
+  var firstTabEl = document.querySelector('#myTab li:last-child a')
+  var firstTab = new bootstrap.Tab(firstTabEl)
+
+  firstTab.show()
+</script>
+    </div>
+
+    <script src="casos.js"></script>
+    <script src="muertes.js"></script>
+    <script src="positividad.js"></script>
+    <script src="vacunados.js"></script>
+    <!-- <script type="module" src="casos.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  </body>
+</html>
